@@ -6,7 +6,7 @@ class Donor:
                  patient_id, covid_pcr_performed, covid_test_result, covid_interval, admission_reason,
                  vasoactive_reagents, covid_who_classification, symptoms,
                  developmental_stage, vital_status, taxon_id, smoking_status, smoking_pack_years, age, bmi, sex,
-                 hiv, cd4_t_cell_count, hiv_viral_load, immunocompromised_status, organ_transplant,
+                 com_hiv, com_cd4_count, com_hiv_load, com_immunocomp, organ_transplant,
                  organ_transplant_type, bone_marrow_transplant, automimmune_disease):
         self.accession = accession
         self.patient_id = patient_id
@@ -65,7 +65,7 @@ class Sample:
             print("Valid input dictionary not specified.")
 
 
-class ValidValues:
+class ValidatorCurator:
     def __init__(self):
         self.reasons = {"cough": "http://purl.obolibrary.org/obo/HP_0012735",
                         "fever": "http://purl.obolibrary.org/obo/HP_0001945",
@@ -110,6 +110,48 @@ class ValidValues:
 
         self.smoking_status = {"Non-smoker": "http://purl.obolibrary.org/obo/NCIT_C65108",
                                "Smoker": "http://purl.obolibrary.org/obo/NCIT_C67150"}
+
+        self.immune_comorbidities = {"com_hiv",
+                                     "com_cd4_count",
+                                     "com_hiv_load",
+                                     "com_immunocomp",
+                                     "com_immunocomp_time",
+                                     "com_transplant",
+                                     "com_transplat_type",
+                                     "com_bm_transplant",
+                                     "com_autoimm_rheum",
+                                     "com_type_i_diabetes",
+                                     "com_type_ii_diabetes"
+                                     }
+
+        self.respiratory_comorbidities = {"com_asthma",
+                                          "com_chronic_pulm",
+                                          "com_cystic_fibrosis",
+                                          "com_sleep_apnea",
+                                          "com_sleep_cpap"}
+
+        self.digestive_comorbidities = {"com_liver",
+                                        "com_gallbl",
+                                        "com_pancreas"}
+
+        self.renal_comorbidities = {"com_chronic_kidney"}
+
+        self.cardiovascular_comorbidities = {"com_angio",
+                                             "com_bypass",
+                                             "com_heart_failure",
+                                             "com_hypertension",
+                                             "com_infarction_type1",
+                                             "com_infarction_type2",
+                                             "com_vascular",
+                                             "com_stroke",
+                                             "com_arrythmias"}
+
+        self.neurological_comorbidities = {"com_dementia",
+                                           "com_neurological"}
+
+        self.cancer_comorbidities = {"com_leukemia",
+                                     "com_lymphoma",
+                                     "com_malignant_solid"}
 
 
 
